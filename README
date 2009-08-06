@@ -1,0 +1,24 @@
+Installation
+============
+
+Install SnipMate:
+http://www.vim.org/scripts/script.php?script_id=2540
+
+Copy `django.snippets` and `django_template.snippets` to your snippets
+directory, typically at ~/.vim/snippets.
+
+Activate the snippets by using the filetype setting.  For example:
+
+	:set ft=python.django
+
+For Django templates:
+
+	:set ft=html.django_template
+
+To set these automatically each time you run vim, add the following lines to
+your .vimrc:
+
+	autocmd FileType python set ft=python.django " For SnipMate
+	autocmd FileType html set ft=html.django_template " For SnipMate
+
+Enjoy!
