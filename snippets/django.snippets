@@ -93,3 +93,8 @@ snippet modeladmin
 	
 	admin.site.register($1, $1Admin)
 	
+snippet r2r
+	return render_to_response('${1:template.html}', {
+			${2}
+		}${3:, context_instance=RequestContext(request)}
+	)
