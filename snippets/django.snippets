@@ -93,6 +93,14 @@ snippet modeladmin
 	
 	admin.site.register($1, $1Admin)
 	
+snippet tabularinline
+	class ${1:ModelName}Inline(admin.TabularInline):
+		model = $1
+
+snippet stackedinline
+	class ${1:ModelName}Inline(admin.StackedInline):
+		model = $1
+
 snippet r2r
 	return render_to_response('${1:template.html}', {
 			${2}
