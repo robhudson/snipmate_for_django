@@ -1,3 +1,12 @@
+# Generic Tags
+snippet %
+	{% ${1} %}${2}
+snippet %%
+	{% ${1:tag_name} %}
+	${2}
+	{% end$1 %}
+snippet {
+	{{ ${1} }}${2}
 # Template Tags
 
 snippet autoescape
@@ -70,7 +79,6 @@ snippet widthratio
 	{% widthratio ${1:this_value} ${2:max_value} ${3:100} %}
 snippet with
 	{% with ${1} as ${2} %}
-
 # Template Filters
 
 # Note: Since SnipMate can't determine which template filter you are
