@@ -13,12 +13,12 @@ Activate the snippets by using the filetype setting.  For example:
 
 For Django templates:
 
-	:set ft=html.django_template
+	:set ft=htmldjango.html
 
 To set these automatically each time you run vim, add the following lines to
 your .vimrc:
 
 	autocmd FileType python set ft=python.django " For SnipMate
-	autocmd FileType html set ft=html.django_template " For SnipMate
+	autocmd FileType html set ft=htmldjango.html " For SnipMate
 
 Enjoy!
