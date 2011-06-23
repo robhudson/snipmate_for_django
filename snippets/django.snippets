@@ -8,59 +8,59 @@
 # Note: Optional arguments that are booleans will use the opposite since you
 # can either not specify them, or override them, e.g. auto_now_add=False.
 
-snippet mauto
-    ${1:FIELDNAME} = models.AutoField()
-snippet mbool
-    ${1:FIELDNAME} = models.BooleanField(${2:default=True})
-snippet mchar
-    ${1:FIELDNAME} = models.CharField(max_length=${2}${3:, blank=True})
-snippet mcomma
-    ${1:FIELDNAME} = models.CommaSeparatedIntegerField(max_length=${2}${3:, blank=True})
-snippet mdate
-    ${1:FIELDNAME} = models.DateField(${2:auto_now_add=True, auto_now=True}${3:, blank=True, null=True})
-snippet mdatetime
-    ${1:FIELDNAME} = models.DateTimeField(${2:auto_now_add=True, auto_now=True}${3:, blank=True, null=True})
-snippet mdecimal
-    ${1:FIELDNAME} = models.DecimalField(max_digits=${2}, decimal_places=${3})
-snippet memail
-    ${1:FIELDNAME} = models.EmailField(max_length=${2:75}${3:, blank=True})
-snippet mfile
-    ${1:FIELDNAME} = models.FileField(upload_to=${2:path/for/upload}${3:, max_length=100})
-snippet mfilepath
-    ${1:FIELDNAME} = models.FilePathField(path=${2:"/abs/path/to/dir"}${3:, max_length=100}${4:, match="*.ext"}${5:, recursive=True}${6:, blank=True, })
-snippet mfloat
-    ${1:FIELDNAME} = models.FloatField()
-snippet mimage
-    ${1:FIELDNAME} = models.ImageField(upload_to=${2:path/for/upload}${3:, height_field=height, width_field=width}${4:, max_length=100})
-snippet mint
-    ${1:FIELDNAME} = models.IntegerField()
-snippet mip
-    ${1:FIELDNAME} = models.IPAddressField()
-snippet mnullbool
-    ${1:FIELDNAME} = models.NullBooleanField()
-snippet mposint
-    ${1:FIELDNAME} = models.PositiveIntegerField()
-snippet mpossmallint
-    ${1:FIELDNAME} = models.PositiveSmallIntegerField()
-snippet mslug
-    ${1:FIELDNAME} = models.SlugField(max_length=${2:50}${3:, blank=True})
-snippet msmall
-    ${1:FIELDNAME} = models.SmallIntegerField()
-snippet mtext
-    ${1:FIELDNAME} = models.TextField(${2:blank=True})
-snippet mtime
-    ${1:FIELDNAME} = models.TimeField(${2:auto_now_add=True, auto_now=True}${3:, blank=True, null=True})
-snippet murl
-    ${1:FIELDNAME} = models.URLField(${2:verify_exists=False}${3:, max_length=200}${4:, blank=True})
-snippet mxml
-    ${1:FIELDNAME} = models.XMLField(schema_path=${2:None}${3:, blank=True})
+snippet m_auto
+	${1:FIELDNAME} = models.AutoField()
+snippet m_bool
+	${1:FIELDNAME} = models.BooleanField(${2:default=True})
+snippet m_char
+	${1:FIELDNAME} = models.CharField(max_length=${2}${3:, blank=True})
+snippet m_comma
+	${1:FIELDNAME} = models.CommaSeparatedIntegerField(max_length=${2}${3:, blank=True})
+snippet m_date
+	${1:FIELDNAME} = models.DateField(${2:auto_now_add=True, auto_now=True}${3:, blank=True, null=True})
+snippet m_datetime
+	${1:FIELDNAME} = models.DateTimeField(${2:auto_now_add=True, auto_now=True}${3:, blank=True, null=True})
+snippet m_decimal
+	${1:FIELDNAME} = models.DecimalField(max_digits=${2}, decimal_places=${3})
+snippet m_email
+	${1:FIELDNAME} = models.EmailField(max_length=${2:75}${3:, blank=True})
+snippet m_file
+	${1:FIELDNAME} = models.FileField(upload_to=${2:path/for/upload}${3:, max_length=100})
+snippet m_filepath
+	${1:FIELDNAME} = models.FilePathField(path=${2:"/abs/path/to/dir"}${3:, max_length=100}${4:, match="*.ext"}${5:, recursive=True}${6:, blank=True, })
+snippet m_float
+	${1:FIELDNAME} = models.FloatField()
+snippet m_image
+	${1:FIELDNAME} = models.ImageField(upload_to=${2:path/for/upload}${3:, height_field=height, width_field=width}${4:, max_length=100})
+snippet m_int
+	${1:FIELDNAME} = models.IntegerField()
+snippet m_ip
+	${1:FIELDNAME} = models.IPAddressField()
+snippet m_nullbool
+	${1:FIELDNAME} = models.NullBooleanField()
+snippet m_posint
+	${1:FIELDNAME} = models.PositiveIntegerField()
+snippet m_possmallint
+	${1:FIELDNAME} = models.PositiveSmallIntegerField()
+snippet m_slug
+	${1:FIELDNAME} = models.SlugField(max_length=${2:50}${3:, blank=True})
+snippet m_smallint
+	${1:FIELDNAME} = models.SmallIntegerField()
+snippet m_text
+	${1:FIELDNAME} = models.TextField(${2:blank=True})
+snippet m_time
+	${1:FIELDNAME} = models.TimeField(${2:auto_now_add=True, auto_now=True}${3:, blank=True, null=True})
+snippet m_url
+	${1:FIELDNAME} = models.URLField(${2:verify_exists=False}${3:, max_length=200}${4:, blank=True})
+snippet m_xml
+	${1:FIELDNAME} = models.XMLField(schema_path=${2:None}${3:, blank=True})
 # Relational Fields
-snippet mfk
-    ${1:FIELDNAME} = models.ForeignKey(${2:OtherModel}${3:, related_name=''}${4:, limit_choices_to=}${5:, to_field=''})
-snippet mm2m
-    ${1:FIELDNAME} = models.ManyToManyField(${2:OtherModel}${3:, related_name=''}${4:, limit_choices_to=}${5:, symmetrical=False}${6:, through=''}${7:, db_table=''})
-snippet mo2o
-    ${1:FIELDNAME} = models.OneToOneField(${2:OtherModel}${3:, parent_link=True}${4:, related_name=''}${5:, limit_choices_to=}${6:, to_field=''})
+snippet m_fk
+	${1:FIELDNAME} = models.ForeignKey(${2:OtherModel}${3:, related_name=''}${4:, limit_choices_to=}${5:, to_field=''})
+snippet m_m2m
+	${1:FIELDNAME} = models.ManyToManyField(${2:OtherModel}${3:, related_name=''}${4:, limit_choices_to=}${5:, symmetrical=False}${6:, through=''}${7:, db_table=''})
+snippet m_o2o
+	${1:FIELDNAME} = models.OneToOneField(${2:OtherModel}${3:, parent_link=True}${4:, related_name=''}${5:, limit_choices_to=}${6:, to_field=''})
 
 # Form Fields
 
@@ -72,59 +72,59 @@ snippet mo2o
 # Note: Optional arguments that are booleans will use the opposite since you
 # can either not specify them, or override them, e.g. required=False.
 
-snippet fauto
-    ${1:FIELDNAME} = forms.AutoField()
-snippet fbool
-    ${1:FIELDNAME} = forms.BooleanField(${2:default=True})
-snippet fchar
-    ${1:FIELDNAME} = forms.CharField(max_length=${2}${3:, blank=True})
-snippet fcomma
-    ${1:FIELDNAME} = forms.CommaSeparatedIntegerField(max_length=${2}${3:, blank=True})
-snippet fdate
-    ${1:FIELDNAME} = forms.DateField(${2:auto_now_add=True, auto_now=True}${3:, blank=True, null=True})
-snippet fdatetime
-    ${1:FIELDNAME} = forms.DateTimeField(${2:auto_now_add=True, auto_now=True}${3:, blank=True, null=True})
-snippet fdecimal
-    ${1:FIELDNAME} = forms.DecimalField(max_digits=${2}, decimal_places=${3})
-snippet femail
-    ${1:FIELDNAME} = forms.EmailField(max_length=${2:75}${3:, blank=True})
+snippet f_auto
+	${1:FIELDNAME} = forms.AutoField()
+snippet f_bool
+	${1:FIELDNAME} = forms.BooleanField(${2:default=True})
+snippet f_char
+	${1:FIELDNAME} = forms.CharField(max_length=${2}${3:, blank=True})
+snippet f_comma
+	${1:FIELDNAME} = forms.CommaSeparatedIntegerField(max_length=${2}${3:, blank=True})
+snippet f_date
+	${1:FIELDNAME} = forms.DateField(${2:auto_now_add=True, auto_now=True}${3:, blank=True, null=True})
+snippet f_datetime
+	${1:FIELDNAME} = forms.DateTimeField(${2:auto_now_add=True, auto_now=True}${3:, blank=True, null=True})
+snippet f_decimal
+	${1:FIELDNAME} = forms.DecimalField(max_digits=${2}, decimal_places=${3})
+snippet f_email
+	${1:FIELDNAME} = forms.EmailField(max_length=${2:75}${3:, blank=True})
 snippet file
-    ${1:FIELDNAME} = forms.FileField(upload_to=${2:path/for/upload}${3:, max_length=100})
+	${1:FIELDNAME} = forms.FileField(upload_to=${2:path/for/upload}${3:, max_length=100})
 snippet filepath
-    ${1:FIELDNAME} = forms.FilePathField(path=${2:"/abs/path/to/dir"}${3:, max_length=100}${4:, match="*.ext"}${5:, recursive=True}${6:, blank=True, })
-snippet ffloat
-    ${1:FIELDNAME} = forms.FloatField()
-snippet fimage
-    ${1:FIELDNAME} = forms.ImageField(upload_to=${2:path/for/upload}${3:, height_field=height, width_field=width}${4:, max_length=100})
-snippet fint
-    ${1:FIELDNAME} = forms.IntegerField()
-snippet fip
-    ${1:FIELDNAME} = forms.IPAddressField()
-snippet fnullbool
-    ${1:FIELDNAME} = forms.NullBooleanField()
-snippet fposint
-    ${1:FIELDNAME} = forms.PositiveIntegerField()
-snippet fpossmallint
-    ${1:FIELDNAME} = forms.PositiveSmallIntegerField()
-snippet fslug
-    ${1:FIELDNAME} = forms.SlugField(max_length=${2:50}${3:, blank=True})
-snippet fsmall
-    ${1:FIELDNAME} = forms.SmallIntegerField()
-snippet ftext
-    ${1:FIELDNAME} = forms.TextField(${2:blank=True})
-snippet ftime
-    ${1:FIELDNAME} = forms.TimeField(${2:auto_now_add=True, auto_now=True}${3:, blank=True, null=True})
-snippet furl
-    ${1:FIELDNAME} = forms.URLField(${2:verify_exists=False}${3:, max_length=200}${4:, blank=True})
-snippet fxml
-    ${1:FIELDNAME} = forms.XMLField(schema_path=${2:None}${3:, blank=True})
+	${1:FIELDNAME} = forms.FilePathField(path=${2:"/abs/path/to/dir"}${3:, max_length=100}${4:, match="*.ext"}${5:, recursive=True}${6:, blank=True, })
+snippet f_float
+	${1:FIELDNAME} = forms.FloatField()
+snippet f_image
+	${1:FIELDNAME} = forms.ImageField(upload_to=${2:path/for/upload}${3:, height_field=height, width_field=width}${4:, max_length=100})
+snippet f_int
+	${1:FIELDNAME} = forms.IntegerField()
+snippet f_ip
+	${1:FIELDNAME} = forms.IPAddressField()
+snippet f_nullbool
+	${1:FIELDNAME} = forms.NullBooleanField()
+snippet f_posint
+	${1:FIELDNAME} = forms.PositiveIntegerField()
+snippet f_possmallint
+	${1:FIELDNAME} = forms.PositiveSmallIntegerField()
+snippet f_slug
+	${1:FIELDNAME} = forms.SlugField(max_length=${2:50}${3:, blank=True})
+snippet f_small
+	${1:FIELDNAME} = forms.SmallIntegerField()
+snippet f_text
+	${1:FIELDNAME} = forms.TextField(${2:blank=True})
+snippet f_time
+	${1:FIELDNAME} = forms.TimeField(${2:auto_now_add=True, auto_now=True}${3:, blank=True, null=True})
+snippet f_url
+	${1:FIELDNAME} = forms.URLField(${2:verify_exists=False}${3:, max_length=200}${4:, blank=True})
+snippet f_xml
+	${1:FIELDNAME} = forms.XMLField(schema_path=${2:None}${3:, blank=True})
 # Relational Fields
-snippet ffk
-    ${1:FIELDNAME} = forms.ForeignKey(${2:OtherModel}${3:, related_name=''}${4:, limit_choices_to=}${5:, to_field=''})
-snippet fm2m
-    ${1:FIELDNAME} = forms.ManyToManyField(${2:OtherModel}${3:, related_name=''}${4:, limit_choices_to=}${5:, symmetrical=False}${6:, through=''}${7:, db_table=''})
-snippet fo2o
-    ${1:FIELDNAME} = forms.OneToOneField(${2:OtherModel}${3:, parent_link=True}${4:, related_name=''}${5:, limit_choices_to=}${6:, to_field=''})    
+snippet f_fk
+	${1:FIELDNAME} = forms.ForeignKey(${2:OtherModel}${3:, related_name=''}${4:, limit_choices_to=}${5:, to_field=''})
+snippet f_m2m
+	${1:FIELDNAME} = forms.ManyToManyField(${2:OtherModel}${3:, related_name=''}${4:, limit_choices_to=}${5:, symmetrical=False}${6:, through=''}${7:, db_table=''})
+snippet f_o2o
+	${1:FIELDNAME} = forms.OneToOneField(${2:OtherModel}${3:, parent_link=True}${4:, related_name=''}${5:, limit_choices_to=}${6:, to_field=''})	
 
 ##
 ## Code Skeletons
