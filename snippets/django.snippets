@@ -120,15 +120,25 @@ snippet f_xml
 	${1:FIELDNAME} = forms.XMLField(schema_path=${2:None}${3:, blank=True})
 # Relational Fields
 snippet f_fk
-	${1:FIELDNAME} = forms.ForeignKey(${2:OtherModel}${3:, related_name=''}${4:, limit_choices_to=}${5:, to_field=''})
+	${1:FIELDNAME} = forms.ModelChoiceField(${2:, queryset=Model.objects.all()}${3:, empty_label=''})
 snippet f_m2m
-	${1:FIELDNAME} = forms.ManyToManyField(${2:OtherModel}${3:, related_name=''}${4:, limit_choices_to=}${5:, symmetrical=False}${6:, through=''}${7:, db_table=''})
-snippet f_o2o
-	${1:FIELDNAME} = forms.OneToOneField(${2:OtherModel}${3:, parent_link=True}${4:, related_name=''}${5:, limit_choices_to=}${6:, to_field=''})	
+	${1:FIELDNAME} = forms.ModelMultipleChoiceField(${2:, queryset=Model.objects.all()}${3:, empty_label=''})
 
 ##
 ## Code Skeletons
 ##
+
+# Methods
+
+snippet __unicode__
+	def __unicode__(self):
+		${1}
+
+snippet get_absolute_url
+    @models.permalink
+    def get_absolute_url(self):
+        return ('${1:view_or_url_name}' ${2})
+
 
 # Form and Models
 
