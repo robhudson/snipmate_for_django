@@ -195,3 +195,20 @@ snippet action
     def ${1:action}(request):
         """ Action """
         pass
+
+# Tests
+
+snippet testclass
+	class ${1:ClassTest}(TestCase):
+		"""{$2}"""
+		pass
+
+snippet setup
+	def setUp(self):
+		"""${1}"""
+		pass
+
+snippet test
+	def test_${1:method}(self):
+		"""{$2}"""
+		pass
