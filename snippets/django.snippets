@@ -111,7 +111,7 @@ snippet f_slug
 snippet f_small
 	${1:FIELDNAME} = forms.SmallIntegerField()
 snippet f_text
-	${1:FIELDNAME} = forms.TextField(${2:blank=True})
+	${1:FIELDNAME} = forms.CharField(${2:blank=True}, widget=forms.Textarea)
 snippet f_time
 	${1:FIELDNAME} = forms.TimeField(${2:auto_now_add=True, auto_now=True}${3:, blank=True, null=True})
 snippet f_url
