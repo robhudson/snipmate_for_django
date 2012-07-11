@@ -118,6 +118,10 @@ snippet f_url
 	${1:FIELDNAME} = forms.URLField(${2:verify_exists=False}${3:, max_length=200}${4:, required=True})
 snippet f_xml
 	${1:FIELDNAME} = forms.XMLField(schema_path=${2:None}${3:, required=True})
+snippet f_choice
+	${1:FIELDNAME} = forms.ChoiceField(label='')
+snippet f_mchoice
+	${1:FIELDNAME} = forms.MultipleChoiceField(label='')
 # Relational Fields
 snippet f_fk
 	${1:FIELDNAME} = forms.ModelChoiceField(${2:, queryset=Model.objects.all()}${3:, empty_label=''})
