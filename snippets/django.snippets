@@ -8,104 +8,211 @@
 # Note: Optional arguments that are booleans will use the opposite since you
 # can either not specify them, or override them, e.g. auto_now_add=False.
 
-snippet auto
+snippet m_auto
 	${1:FIELDNAME} = models.AutoField()
-snippet bool
+snippet m_bool
 	${1:FIELDNAME} = models.BooleanField(${2:default=True})
-snippet char
+snippet m_char
 	${1:FIELDNAME} = models.CharField(max_length=${2}${3:, blank=True})
-snippet comma
+snippet m_comma
 	${1:FIELDNAME} = models.CommaSeparatedIntegerField(max_length=${2}${3:, blank=True})
-snippet date
+snippet m_date
 	${1:FIELDNAME} = models.DateField(${2:auto_now_add=True, auto_now=True}${3:, blank=True, null=True})
-snippet datetime
+snippet m_datetime
 	${1:FIELDNAME} = models.DateTimeField(${2:auto_now_add=True, auto_now=True}${3:, blank=True, null=True})
-snippet decimal
+snippet m_decimal
 	${1:FIELDNAME} = models.DecimalField(max_digits=${2}, decimal_places=${3})
-snippet email
+snippet m_email
 	${1:FIELDNAME} = models.EmailField(max_length=${2:75}${3:, blank=True})
-snippet file
+snippet m_file
 	${1:FIELDNAME} = models.FileField(upload_to=${2:path/for/upload}${3:, max_length=100})
-snippet filepath
+snippet m_filepath
 	${1:FIELDNAME} = models.FilePathField(path=${2:"/abs/path/to/dir"}${3:, max_length=100}${4:, match="*.ext"}${5:, recursive=True}${6:, blank=True, })
-snippet float
+snippet m_float
 	${1:FIELDNAME} = models.FloatField()
-snippet image
+snippet m_image
 	${1:FIELDNAME} = models.ImageField(upload_to=${2:path/for/upload}${3:, height_field=height, width_field=width}${4:, max_length=100})
-snippet int
+snippet m_int
 	${1:FIELDNAME} = models.IntegerField()
-snippet ip
+snippet m_ip
 	${1:FIELDNAME} = models.IPAddressField()
-snippet nullbool
+snippet m_nullbool
 	${1:FIELDNAME} = models.NullBooleanField()
-snippet posint
+snippet m_posint
 	${1:FIELDNAME} = models.PositiveIntegerField()
-snippet possmallint
+snippet m_possmallint
 	${1:FIELDNAME} = models.PositiveSmallIntegerField()
-snippet slug
+snippet m_slug
 	${1:FIELDNAME} = models.SlugField(max_length=${2:50}${3:, blank=True})
-snippet smallint
+snippet m_smallint
 	${1:FIELDNAME} = models.SmallIntegerField()
-snippet text
+snippet m_text
 	${1:FIELDNAME} = models.TextField(${2:blank=True})
-snippet time
+snippet m_time
 	${1:FIELDNAME} = models.TimeField(${2:auto_now_add=True, auto_now=True}${3:, blank=True, null=True})
-snippet url
+snippet m_url
 	${1:FIELDNAME} = models.URLField(${2:verify_exists=False}${3:, max_length=200}${4:, blank=True})
-snippet xml
+snippet m_xml
 	${1:FIELDNAME} = models.XMLField(schema_path=${2:None}${3:, blank=True})
 # Relational Fields
-snippet fk
+snippet m_fk
 	${1:FIELDNAME} = models.ForeignKey(${2:OtherModel}${3:, related_name=''}${4:, limit_choices_to=}${5:, to_field=''})
-snippet m2m
+snippet m_m2m
 	${1:FIELDNAME} = models.ManyToManyField(${2:OtherModel}${3:, related_name=''}${4:, limit_choices_to=}${5:, symmetrical=False}${6:, through=''}${7:, db_table=''})
-snippet o2o
+snippet m_o2o
 	${1:FIELDNAME} = models.OneToOneField(${2:OtherModel}${3:, parent_link=True}${4:, related_name=''}${5:, limit_choices_to=}${6:, to_field=''})
 
-# Code Skeletons
+# Form Fields
+
+# Note: Optional arguments are using defaults that match what Django will use
+# as a default, e.g. with max_length fields.  Doing this as a form of self
+# documentation and to make it easy to know whether you should override the
+# default or not.
+
+# Note: Optional arguments that are booleans will use the opposite since you
+# can either not specify them, or override them, e.g. required=False.
+
+snippet f_auto
+	${1:FIELDNAME} = forms.AutoField()
+snippet f_bool
+	${1:FIELDNAME} = forms.BooleanField(${2:default=True})
+snippet f_char
+	${1:FIELDNAME} = forms.CharField(max_length=${2}${3:, required=True})
+snippet f_comma
+	${1:FIELDNAME} = forms.CommaSeparatedIntegerField(max_length=${2}${3:, required=True})
+snippet f_date
+	${1:FIELDNAME} = forms.DateField(${2:auto_now_add=True, auto_now=True}${3:, required=True})
+snippet f_datetime
+	${1:FIELDNAME} = forms.DateTimeField(${2:auto_now_add=True, auto_now=True}${3:, required=True})
+snippet f_decimal
+	${1:FIELDNAME} = forms.DecimalField(max_digits=${2}, decimal_places=${3})
+snippet f_email
+	${1:FIELDNAME} = forms.EmailField(max_length=${2:75}${3:, required=True})
+snippet file
+	${1:FIELDNAME} = forms.FileField(upload_to=${2:path/for/upload}${3:, max_length=100})
+snippet filepath
+	${1:FIELDNAME} = forms.FilePathField(path=${2:"/abs/path/to/dir"}${3:, max_length=100}${4:, match="*.ext"}${5:, recursive=True}${6:, required=True, })
+snippet f_float
+	${1:FIELDNAME} = forms.FloatField()
+snippet f_image
+	${1:FIELDNAME} = forms.ImageField(upload_to=${2:path/for/upload}${3:, height_field=height, width_field=width}${4:, max_length=100})
+snippet f_int
+	${1:FIELDNAME} = forms.IntegerField()
+snippet f_ip
+	${1:FIELDNAME} = forms.IPAddressField()
+snippet f_nullbool
+	${1:FIELDNAME} = forms.NullBooleanField()
+snippet f_posint
+	${1:FIELDNAME} = forms.PositiveIntegerField()
+snippet f_possmallint
+	${1:FIELDNAME} = forms.PositiveSmallIntegerField()
+snippet f_slug
+	${1:FIELDNAME} = forms.SlugField(max_length=${2:50}${3:, required=True})
+snippet f_small
+	${1:FIELDNAME} = forms.SmallIntegerField()
+snippet f_text
+	${1:FIELDNAME} = forms.CharField(${2:required=True}, widget=forms.Textarea)
+snippet f_time
+	${1:FIELDNAME} = forms.TimeField(${2:auto_now_add=True, auto_now=True}${3:, required=True})
+snippet f_url
+	${1:FIELDNAME} = forms.URLField(${2:verify_exists=False}${3:, max_length=200}${4:, required=True})
+snippet f_xml
+	${1:FIELDNAME} = forms.XMLField(schema_path=${2:None}${3:, required=True})
+snippet f_choice
+	${1:FIELDNAME} = forms.ChoiceField(label='')
+snippet f_mchoice
+	${1:FIELDNAME} = forms.MultipleChoiceField(label='')
+# Relational Fields
+snippet f_fk
+	${1:FIELDNAME} = forms.ModelChoiceField(${2:, queryset=Model.objects.all()}${3:, empty_label=''})
+snippet f_m2m
+	${1:FIELDNAME} = forms.ModelMultipleChoiceField(${2:, queryset=Model.objects.all()}${3:, empty_label=''})
+
+##
+## Code Skeletons
+##
+
+# Methods
+
+snippet __unicode__
+	def __unicode__(self):
+		${1}
+
+snippet get_absolute_url
+    @models.permalink
+    def get_absolute_url(self):
+        return ('${1:view_or_url_name}' ${2})
+
+
+# Form and Models
 
 snippet form
-	class ${1:FormName}(forms.Form):
-		"""${2:docstring}"""
-		${3}
+    class ${1:FormName}(forms.Form):
+        """${2:docstring}"""
+        ${3}
 
 snippet model
-	class ${1:ModelName}(models.Model):
-		"""${2:docstring}"""
-		${3}
-		
-		class Meta:
-			${4}
-		
-		def __unicode__(self):
-			${5}
-		
-		def save(self, force_insert=False, force_update=False):
-			${6}
-		
-		@models.permalink
-		def get_absolute_url(self):
-			return ('${7:view_or_url_name}' ${8})
+    class ${1:ModelName}(models.Model):
+        """${2:docstring}"""
+        ${3}
+        
+        class Meta:
+            ${4}
+        
+        def __unicode__(self):
+            ${5}
+        
+        def save(self, force_insert=False, force_update=False):
+            ${6}
+        
+        @models.permalink
+        def get_absolute_url(self):
+            return ('${7:view_or_url_name}' ${8})
+
+# Admin
 
 snippet modeladmin
-	class ${1:ModelName}Admin(admin.ModelAdmin):
-		${2}
-	
-	admin.site.register($1, $1Admin)
-	
-snippet r2r
-	return render_to_response('${1:template.html}', {
-			${2}
-		}${3:, context_instance=RequestContext(request)}
-	)
+    class ${1:ModelName}Admin(admin.ModelAdmin):
+        ${2}
+    
+    admin.site.register($1, $1Admin)
 
 snippet tabularinline
-	class ${1:ModelName}Inline(admin.TabularInline):
-		model = $1
-		extra = ${2:3}
+    class ${1:ModelName}Inline(admin.TabularInline):
+        model = $1
+        extra = ${2:3}
 
 snippet stackedinline
-	class ${1:ModelName}Inline(admin.StackedInline):
-		model = $1
-		extra = ${2:3}
+    class ${1:ModelName}Inline(admin.StackedInline):
+        model = $1
+        extra = ${2:3}
 
+# Views
+
+snippet render_to_response
+    return render_to_response('${1:template.html}', {
+            ${2}
+        }${3:, context_instance=RequestContext(request)}
+    )
+
+snippet action
+    def ${1:action}(request):
+        """ Action """
+        pass
+
+# Tests
+
+snippet testclass
+	class ${1:ClassTest}(TestCase):
+		"""{$2}"""
+		pass
+
+snippet setup
+	def setUp(self):
+		"""${1}"""
+		pass
+
+snippet test
+	def test_${1:method}(self):
+		"""{$2}"""
+		pass
